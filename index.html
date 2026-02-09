@@ -2,110 +2,174 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Finding My Voice: Generative Reconstruction of Disordered Speech for Automated Clinical Evaluation</title>
+<title>Finding My Voice – Anonymous Interspeech Submission</title>
 
 <style>
 body {
-  font-family: Arial, sans-serif;
-  margin: 40px;
-  max-width: 900px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  margin: 0;
+  background: #f7f7f7;
 }
 
-h1, h2 {
+.container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 40px 20px;
+  background: white;
+}
+
+h1 {
   text-align: center;
+  margin-bottom: 10px;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 40px;
 }
 
 .abstract {
-  margin-bottom: 40px;
+  margin: 30px auto;
+  line-height: 1.6;
   text-align: justify;
+  max-width: 900px;
 }
 
 .figure {
   text-align: center;
-  margin: 30px 0;
+  margin: 40px 0;
+}
+
+.figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
 }
 
 .audio-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
+  margin-top: 30px;
 }
 
 .audio-item {
-  border: 1px solid #ccc;
-  padding: 10px;
-  border-radius: 8px;
+  background: #fafafa;
+  border: 1px solid #e0e0e0;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.transcript {
+  display: block;
+  margin-top: 6px;
+  font-style: italic;
+  color: #555;
+}
+
+audio {
+  width: 100%;
+  margin-top: 10px;
+}
+
+/* Responsive layout */
+@media (max-width: 900px) {
+  .audio-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .audio-grid {
+    grid-template-columns: 1fr;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<h1>Anonymous Interspeech Submission</h1>
+<div class="container">
+
+<h1>Finding My Voice: Generative Reconstruction of Disordered Speech for Automated Clinical Evaluation</h1>
 
 <div class="abstract">
 <h2>Abstract</h2>
 <p>
-PASTE YOUR PAPER ABSTRACT HERE.
+We present ChiReSSD, a speech reconstruction framework that preserves children's speaker identity while suppressing mispronunciations. Unlike prior approaches trained on healthy adult speech, ChiReSSD adapts to the voices of children with speech sound disorders (SSD), with particular emphasis on pitch and prosody. We evaluate our method on the STAR dataset and report substantial improvements in lexical accuracy and speaker identity preservation. Furthermore, we automatically predict the phonetic content in the original and reconstructed pairs, where the proportion of corrected consonants is comparable to the percentage of correct consonants (PCC), a clinical speech assessment metric. Our experiments show Pearson correlation of 0.63 between automatic and human expert annotations, highlighting the potential to reduce the manual transcription burden. In addition, experiments on the TORGO dataset demonstrate effective generalization for reconstructing adult dysarthric speech. Our results indicate that disentangled, style-based TTS reconstruction can provide identity-preserving speech across diverse clinical populations.
 </p>
 </div>
 
 <div class="figure">
 <h2>Method Overview</h2>
-<img src="flowchart.png" width="600">
+<img src="flowchart.png">
 </div>
 
 <h2>Audio Samples</h2>
 
 <div class="audio-grid">
 
+<!-- Butterfly -->
 <div class="audio-item">
-<p><b>Sample 1</b></p>
+<b>Original SSD</b>
+<span class="transcript">Target word: “Butterfly”</span>
 <audio controls src="audio/03SSD1F_butterfly_03SSD1F_butterfly.wav"></audio>
 </div>
 
 <div class="audio-item">
-<p><b>Sample 2</b></p>
-<audio controls src="audio/NCC_03SSD1F_butterfly_03SSD1F_butterfly.wav"></audio>
-</div>
-
-<div class="audio-item">
-<p><b>Sample 3</b></p>
+<b>One-shot Reconstruction</b>
+<span class="transcript">Target word: “Butterfly”</span>
 <audio controls src="audio/B_03SSD1F_butterfly_03SSD1F_butterfly.wav"></audio>
 </div>
 
 <div class="audio-item">
-<p><b>Sample 4</b></p>
+<b>ChiReSSD Reconstruction</b>
+<span class="transcript">Target word: “Butterfly”</span>
+<audio controls src="audio/NCC_03SSD1F_butterfly_03SSD1F_butterfly.wav"></audio>
+</div>
+
+<!-- Strawberries -->
+<div class="audio-item">
+<b>Original SSD</b>
+<span class="transcript">Target word: “Strawberries”</span>
 <audio controls src="audio/04SSD2M_strawberries_04SSD2M_strawberries.wav"></audio>
 </div>
 
 <div class="audio-item">
-<p><b>Sample 5</b></p>
-<audio controls src="audio/NCC_04SSD2M_strawberries_04SSD2M_strawberries.wav"></audio>
-</div>
-
-<div class="audio-item">
-<p><b>Sample 6</b></p>
+<b>One-shot Reconstruction</b>
+<span class="transcript">Target word: “Strawberries”</span>
 <audio controls src="audio/B_04SSD2M_strawberries_04SSD2M_strawberries.wav"></audio>
 </div>
 
-  
 <div class="audio-item">
-<p><b>Sample 4</b></p>
+<b>ChiReSSD Reconstruction</b>
+<span class="transcript">Target word: “Strawberries”</span>
+<audio controls src="audio/NCC_04SSD2M_strawberries_04SSD2M_strawberries.wav"></audio>
+</div>
+
+<!-- Toothbrush -->
+<div class="audio-item">
+<b>Original SSD</b>
+<span class="transcript">Target word: “Toothbrush”</span>
 <audio controls src="audio/04SSD2M_toothbrush_04SSD2M_toothbrush.wav"></audio>
 </div>
 
 <div class="audio-item">
-<p><b>Sample 5</b></p>
-<audio controls src="audio/NCC_04SSD2M_toothbrush_04SSD2M_toothbrush.wav"></audio>
+<b>One-shot Reconstruction</b>
+<span class="transcript">Target word: “Toothbrush”</span>
+<audio controls src="audio/B_04SSD2M_toothbrush_04SSD2M_toothbrush.wav"></audio>
 </div>
 
 <div class="audio-item">
-<p><b>Sample 6</b></p>
-<audio controls src="audio/B_04SSD2M_toothbrush_04SSD2M_toothbrush.wav"></audio>
-</div>
-  
+<b>ChiReSSD Reconstruction</b>
+<span class="transcript">Target word: “Toothbrush”</span>
+<audio controls src="audio/NCC_04SSD2M_toothbrush_04SSD2M_toothbrush.wav"></audio>
 </div>
 
+</div>
+
+</div>
 </body>
 </html>
